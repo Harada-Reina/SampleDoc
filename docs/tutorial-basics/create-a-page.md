@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_label: ページ作成
 ---
 
 # Create a Page
