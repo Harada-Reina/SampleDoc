@@ -23,4 +23,12 @@ module.exports = {
     },
   ],
    */
+ 
+ tutorialSidebar: [
+    {
+      type: 'category',
+      label: 'ドキュメント作成',
+      items: ['hello'],
+    },
+  ],
 };
