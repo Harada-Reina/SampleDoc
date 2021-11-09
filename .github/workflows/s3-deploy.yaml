@@ -33,4 +33,4 @@ jobs:
             aws-region: ap-northeast-1
             
       - name: Copy Files to s3
-        run: aws s3 sync ./build s3://pca-knowledge-base-bucket
+        run: aws s3 sync --exact-timestamps ./build s3://pca-knowledge-base-bucket # 同じファイルサイズでも同期されるように
