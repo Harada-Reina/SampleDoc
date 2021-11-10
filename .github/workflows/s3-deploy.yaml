@@ -15,6 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Make fail if the previous workflow was failed
+        if: ${{ github.event.workflow_run.conclusion != 'success' }}
+        run: |
+          echo '::error::Previous workflow was failed'
+          exit 1
+
       - name: Configure AWS credentials from account
         uses: aws-actions/configure-aws-credentials@v1
         with:
