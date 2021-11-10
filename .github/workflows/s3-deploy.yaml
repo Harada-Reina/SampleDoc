@@ -10,6 +10,52 @@ on:
   workflow_dispatch:  # Action タブから任意に実行できるようにする
   
 jobs:
+  checks:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Test Build
+        run: |
+          if [ -e yarn.lock ]; then
+            yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+            npm ci
+          else
+            npm i
+          fi
+          npm run build
+          
+  gh-release:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+      - name: Release to GitHub Pages
+        env:
+          USE_SSH: true
+          GIT_USER: git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "gh-actions"
+          if [ -e yarn.lock ]; then
+            yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+            npm ci
+          else
+            npm i
+          fi
+          npm run deploy
+          
   deploy:
     name: Build And Upload to S3
     runs-on: ubuntu-latest
@@ -17,13 +63,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1  # リポジトリをチェックアウト
-
-      - name: Build
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - run: yarn
-      - run: yarn build
       
       - name: Configure AWS credentials from account
         uses: aws-actions/configure-aws-credentials@v1
@@ -33,4 +72,4 @@ jobs:
             aws-region: ap-northeast-1
             
       - name: Copy Files to s3
-        run: aws s3 sync --exact-timestamps ./build s3://pca-knowledge-base-bucket # 同じファイルサイズでも同期されるように
+        run: aws s3 sync --exact-timestamps ../gh-pages s3://pca-knowledge-base-bucket # 同じファイルサイズでも同期されるように
