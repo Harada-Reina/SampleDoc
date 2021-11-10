@@ -1,10 +1,11 @@
 name: deploy-on-s3
 
 on:
-  push:
-      branches:
-        - gh-pages
-  workflow_dispatch:  # Action タブから任意に実行できるようにする
+  workflow_run:
+    workflows:
+      - main
+    branches:
+      - gh-pages
         
 jobs:
   deploy:
