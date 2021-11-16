@@ -48,4 +48,4 @@ jobs:
 
           aws s3 sync . s3://zzztest-s3-8/SampleDoc --exact-timestamps # 同じファイルサイズでも同期されるように
           
-          aws s3 sync . s3://zzztest-s3-8　--include "index.html" --exact-timestamps
+          aws s3 sync . s3://zzztest-s3-8　--include 'index.html' --exact-timestamps
