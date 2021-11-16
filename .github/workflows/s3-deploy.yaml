@@ -46,7 +46,7 @@ jobs:
           git config --global user.name "gh-actions"
           git checkout gh-pages
           
-          aws s3 sync . s3://zzztest-s3-8 --include 'index.html' --exact-timestamps
+          aws s3 sync ./index.html s3://zzztest-s3-8  --exact-timestamps
 
           aws s3 sync . s3://zzztest-s3-8/SampleDoc --exact-timestamps # 同じファイルサイズでも同期されるように
           
