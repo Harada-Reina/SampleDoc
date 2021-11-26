@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Tutorial Intro
 
-
+<span style="color: red; ">赤文字</span>
 
 Let's discover **Docusaurus in less than 5 minutes**.
 
