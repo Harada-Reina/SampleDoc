@@ -6,10 +6,6 @@ sidebar_position: 1
 <font font-size="500%">500</font> <br/>
 <font text-align="right">right</font>
 
-<div style="text-align: right;">
-【右揃えにする文章を記述】
-</div>
-
 # Tutorial Intro
 
 Let's discover **Docusaurus in less than 5 minutes**.
