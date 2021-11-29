@@ -2,8 +2,13 @@
 sidebar_position: 1
 ---
 
-<font color="crimson">html で文字色設定</font>
-<font font-size="500%">aaaa</font>
+<font color="crimson">html で文字色設定</font> <br/>
+<font font-size="500%">500</font> <br/>
+<font text-align="right">right</font>
+
+<div style="text-align: right;">
+【右揃えにする文章を記述】
+</div>
 
 # Tutorial Intro
 
