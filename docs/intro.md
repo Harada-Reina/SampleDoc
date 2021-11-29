@@ -2,7 +2,8 @@
 sidebar_position: 1
 ---
 
-<font size="500%">aaaa</font>
+<font color="crimson">html で文字色設定</font>
+<font font-size="500%">aaaa</font>
 
 # Tutorial Intro
 
