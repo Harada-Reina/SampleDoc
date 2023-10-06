@@ -18,6 +18,6 @@ jobs:
           pwd
           wget https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/powershell-7.0.0-linux-x64.tar.gz
           tar xvzf powershell-7.0.0-linux-x64.tar.gz
-          ls
+          pwd
           export PATH=$PATH:`pwd`
           $PATH
