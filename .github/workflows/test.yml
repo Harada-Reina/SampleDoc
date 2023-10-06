@@ -18,7 +18,7 @@ jobs:
           tar xvzf powershell-7.0.0-linux-x64.tar.gz
           export PATH=$PATH:`pwd`
           pwsh -Command { 
-          if (! (test-path Test) ) { 
-          mkdir Test 
-          } 
+            if (! (test-path Test) ) { 
+              mkdir Test 
+            }     
           }
