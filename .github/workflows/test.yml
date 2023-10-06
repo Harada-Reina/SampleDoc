@@ -18,3 +18,4 @@ jobs:
           tar xvzf powershell-7.0.0-linux-x64.tar.gz
           export PATH=$PATH:`pwd`
           echo $PATH
+          pwsh
