@@ -1,0 +1,23 @@
+name: test
+
+on:
+  pull_request:
+    branches: 
+      - main
+  push:
+    branches: 
+      - main
+  workflow_dispatch:  # Action タブから任意に実行できるようにする
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install powershell
+        run: |
+          mkdir powershell
+          cd powershell
+          wget https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/powershell-7.0.0-linux-x64.tar.gz
+          tar xvzf powershell-7.0.0-linux-x64.tar.gz
+          export PATH=$PATH:`pwd`
+          $PATH
