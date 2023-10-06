@@ -1,12 +1,9 @@
 name: test
 
 on:
-  pull_request:
-    branches: 
-      - main
   push:
     branches: 
-      - main
+      - Harada-Reina-patch-1
   workflow_dispatch:  # Action タブから任意に実行できるようにする
 
 jobs:
