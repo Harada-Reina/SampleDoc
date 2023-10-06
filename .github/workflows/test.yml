@@ -17,4 +17,4 @@ jobs:
           wget https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/powershell-7.0.0-linux-x64.tar.gz
           tar xvzf powershell-7.0.0-linux-x64.tar.gz
           export PATH=$PATH:`pwd`
-          pwsh -Command test-path Test
+          pwsh -Command { if (test-path Test) { mkdir Test } }
