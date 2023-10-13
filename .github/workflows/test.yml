@@ -18,7 +18,8 @@ jobs:
           tar xvzf powershell-7.0.0-linux-x64.tar.gz
           export PATH=$PATH:`pwd`
 
-          pwsh
+          
           echo "namespace PCA.BaseFramework" > Test.cs
+          echo "{" >> Test.cs
 
           cat Test.cs
