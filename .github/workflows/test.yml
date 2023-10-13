@@ -17,7 +17,8 @@ jobs:
           wget https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/powershell-7.0.0-linux-x64.tar.gz
           tar xvzf powershell-7.0.0-linux-x64.tar.gz
           export PATH=$PATH:`pwd`
-          
-          Write-Output "namespace PCA.BaseFramework" | Out-File Test.cs -Encoding UTF8
+
+          pwsh
+          echo "namespace PCA.BaseFramework" > Test.cs
 
           cat Test.cs
