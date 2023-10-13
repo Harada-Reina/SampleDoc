@@ -19,7 +19,14 @@ jobs:
           export PATH=$PATH:`pwd`
 
           
-          echo "namespace PCA.BaseFramework" > Test.cs
-          echo "{" >> Test.cs
+          	echo "namespace PCA.BaseFramework" > Test.cs
+          	echo "{" >> Test.cs
+          	echo "    internal class SecretsFuscated" >> Test.cs
+          	echo "    {" >> Test.cs
+          	echo "        public static string Fuscated(int i, int ymd, bool even) {" >> Test.cs
+          	echo "          return string.Empty;" >> Test.cs
+          	echo "		}" >> Test.cs
+          	echo "    }" >> Test.cs
+          	echo "}" >> Test.cs
 
           cat Test.cs
